@@ -1,0 +1,22 @@
+C:\Users\User\source\repos\OS Settings\OS Settings\bin\Debug\net6.0-windows\OS Settings.exe
+C:\Users\User\source\repos\OS Settings\OS Settings\bin\Debug\net6.0-windows\OS Settings.deps.json
+C:\Users\User\source\repos\OS Settings\OS Settings\bin\Debug\net6.0-windows\OS Settings.runtimeconfig.json
+C:\Users\User\source\repos\OS Settings\OS Settings\bin\Debug\net6.0-windows\OS Settings.dll
+C:\Users\User\source\repos\OS Settings\OS Settings\bin\Debug\net6.0-windows\OS Settings.pdb
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\OS Settings_MarkupCompile.cache
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\OS Settings_MarkupCompile.lref
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\OS Settings.g.resources
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\OS Settings.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\OS Settings.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\OS Settings.AssemblyInfo.cs
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\OS Settings.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\OS Settings.dll
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\refint\OS Settings.dll
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\OS Settings.pdb
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\OS Settings.genruntimeconfig.cache
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\ref\OS Settings.dll
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\dialog.g.cs
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\dialog.baml
