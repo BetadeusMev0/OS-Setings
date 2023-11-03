@@ -68,7 +68,10 @@
             <CheckBox x:Name="invisibleBox" Grid.Row="1" VerticalAlignment="Center" Content="Включить Прозрачность панели"/>
             <CheckBox x:Name="darkBox" Grid.Row="2" VerticalAlignment="Center" Content="Включить темный режим"/>
             <CheckBox x:Name="copyToBox" Grid.Row="3" VerticalAlignment="Center" Content="Включить пункт копировать в папку"/>
-            <CheckBox x:Name="fontBox" Grid.Row="4" VerticalAlignment="Center" Content="Включить прикольный шрифт"/>
+            <CheckBox x:Name="cutToBox" Grid.Row="4" VerticalAlignment="Center" Content="Включить пункт переместить в папку"/>
+            <CheckBox x:Name="fontBox" Grid.Row="5" VerticalAlignment="Center" Content="Включить прикольный шрифт"/>
+            <CheckBox x:Name="defragBox" Grid.Row="6" VerticalAlignment="Center" Content="Включить дефрагментацию"  Checked="defragBox_Checked"/>
+
 
 
 

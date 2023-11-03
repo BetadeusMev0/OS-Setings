@@ -38,6 +38,7 @@ namespace OS_Settings
         RegistryKey searchKey = null;
         RegistryKey numlockKey = null;
         RegistryKey defragKey = null;
+        RegistryKey defragKeyCommand = null;
         RegistryKey notifyKey = null;
         RegistryKey invisibleKey = null;
         RegistryKey commandKey = null;
@@ -57,17 +58,26 @@ namespace OS_Settings
             defragKey = Registry.ClassesRoot.OpenSubKey("Drive\\shell", true);
             notifyKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Policies\\Microsoft\\Windows\\Explorer", true);
             invisibleKey = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize", true);
-            //commandKey = Registry.ClassesRoot.OpenSubKey("Directory\\shell\\cmd");
+            //commandKey = Registry.ClassesRoot.OpenSubKey("Directory\\shell\\cmd", true);
             copyTo = Registry.ClassesRoot.OpenSubKey("AllFilesystemObjects\\shellex\\ContextMenuHandlers", true);
             fontKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts", true);
 
             if (fontKey != null) { }
 
-            if (copyTo.OpenSubKey("CopyTo") == null)
+            if (copyTo.OpenSubKey("Copy To") == null)
             {
-                copyTo.CreateSubKey("CopyTo");
-                copyTo.OpenSubKey("CopyTo").SetValue("", "{C2FBB630-2971-11D1-A18C-00C04FD75D13}");
+                copyTo.CreateSubKey("Copy To");
+                copyTo.OpenSubKey("Copy To", true).SetValue("", "{C2FBB630-2971-11D1-A18C-00C04FD75D13}", RegistryValueKind.String);
             }
+
+            if (copyTo.OpenSubKey("Move To") == null) 
+            {
+                copyTo.CreateSubKey("Move To");
+                copyTo.OpenSubKey("Move To", true).SetValue("", "{C2FBB631-2971-11D1-A18C-00C04FD75D13}", RegistryValueKind.String); ;
+            }
+
+            if (copyTo.OpenSubKey("Move To").GetValue("") != "") cutToBox.IsChecked = true;
+            else cutToBox.IsChecked = false;
 
 
             if (copyTo.OpenSubKey("CopyTo").GetValue("") != "") copyToBox.IsChecked = true;
@@ -89,8 +99,7 @@ namespace OS_Settings
             if (notifyKey.GetValue("DisableNotificationCenter").ToString() == "1") notifyBox.IsChecked = false;
 
 
-            if (defragKey.OpenSubKey("runas") == null) defragKey.CreateSubKey("runas");
-            //if (defragKey.OpenSubKey("runas") != null) defragKey.OpenSubKey("runas").SetValue("", "Дефрагментация"); wip
+            if ((defragKeyCommand = defragKey.OpenSubKey("runas")) != null) defragBox.IsChecked = true;
 
             if ((string)numlockKey.GetValue("InitialKeyboardIndicators") == "2") numLockBox.IsChecked = true;
             else numLockBox.IsChecked = false;
@@ -120,6 +129,8 @@ namespace OS_Settings
         {
             
         }
+
+        private bool createDefrag = false;
 
 
         private bool onAnimationBool = false;
@@ -216,12 +227,40 @@ namespace OS_Settings
             if ((bool)fontBox.IsChecked) fontChange("MS Serif"); 
             else fontChange("Calibri");
 
+            if ((bool)cutToBox.IsChecked) copyTo.OpenSubKey("Move To", true).SetValue("", "{C2FBB631-2971-11D1-A18C-00C04FD75D13}");
+            else copyTo.OpenSubKey("Move To", true).SetValue("", "");
 
-            //if ((bool)copyToBox.IsChecked) copyTo.OpenSubKey("CopyTo").SetValue("", "{C2FBB630-2971-11D1-A18C-00C04FD75D13}"); //НЕ РАБОТАЕТ 
-            //else copyTo.OpenSubKey("CopyTo").SetValue("", "");
+            if ((bool)copyToBox.IsChecked) copyTo.OpenSubKey("CopyTo", true).SetValue("", "{C2FBB630-2971-11D1-A18C-00C04FD75D13}"); //НЕ РАБОТАЕТ 
+            else copyTo.OpenSubKey("CopyTo", true).SetValue("", "");
+
+            if (createDefrag && defragKey.OpenSubKey("runas") == null)
+            {
+                defragKeyCommand = defragKey.CreateSubKey("runas");
+                if (defragKey.OpenSubKey("runas") != null) defragKey.OpenSubKey("runas", true).SetValue("", "Дефрагментация");
+                defragKeyCommand.CreateSubKey("command", true).SetValue("", "defrag %1 -v", RegistryValueKind.String);
+            }
+
+            if (!((bool)defragBox.IsChecked)) 
+            {
+                defragKey.OpenSubKey("runas", true).DeleteSubKey("command");
+                defragKey.DeleteSubKey("runas");
+            }
+
+
             RestartExplorer();
             
             new dialog().Show();
+
+        }
+        private bool deleteDefrag = false;
+
+        private void defragBox_Checked(object sender, RoutedEventArgs e)
+        {
+            if((bool)defragBox.IsChecked) createDefrag = true;
+            else createDefrag = false;
+
+            if(!((bool)defragBox.IsChecked)) deleteDefrag = true;
+            else deleteDefrag = false;
 
         }
     }
