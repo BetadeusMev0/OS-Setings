@@ -71,7 +71,8 @@
             <CheckBox x:Name="cutToBox" Grid.Row="4" VerticalAlignment="Center" Content="Включить пункт переместить в папку"/>
             <CheckBox x:Name="fontBox" Grid.Row="5" VerticalAlignment="Center" Content="Включить прикольный шрифт"/>
             <CheckBox x:Name="defragBox" Grid.Row="6" VerticalAlignment="Center" Content="Включить дефрагментацию"  Checked="defragBox_Checked"/>
-
+            <CheckBox x:Name="commandbox" Grid.Row="7"  VerticalAlignment="Center" Content="Добавить командную строку" Checked="commandbox_Checked">
+            </CheckBox>
 
 
 

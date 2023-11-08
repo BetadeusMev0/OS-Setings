@@ -20,3 +20,5 @@ C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\OS S
 C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\ref\OS Settings.dll
 C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\dialog.g.cs
 C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\dialog.baml
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\OS_Settings.Properties.Resources.resources
+C:\Users\User\source\repos\OS Settings\OS Settings\obj\Debug\net6.0-windows\OS Settings.csproj.GenerateResource.cache

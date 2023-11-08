@@ -17,14 +17,24 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net.NetworkInformation;
 using System.Threading;
+using System.Diagnostics;
 
 namespace OS_Settings
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
+        public void ExecuteAsAdmin(string fileName)
+        {
+            Process proc = new Process();
+            proc.StartInfo.FileName = fileName;
+            proc.StartInfo.UseShellExecute = true;
+            proc.StartInfo.Verb = "runas";
+            proc.Start();
+        }
         public MainWindow()
         {
             InitializeComponent();
@@ -246,9 +256,17 @@ namespace OS_Settings
                 defragKey.DeleteSubKey("runas");
             }
 
-
+            if ((bool)commandbox.IsChecked)
+            {
+                ExecuteAsAdmin("C:\\Users\\User\\source\\repos\\OS Settings\\OS Settings\\bin\\Debug\\net6.0-windows\\Resources\\1.reg");
+            }
+            else {
+                ExecuteAsAdmin("C:\\Users\\User\\source\\repos\\OS Settings\\OS Settings\\bin\\Debug\\net6.0-windows\\Resources\\2.reg");
+            }
             RestartExplorer();
             
+
+
             new dialog().Show();
 
         }
@@ -261,6 +279,11 @@ namespace OS_Settings
 
             if(!((bool)defragBox.IsChecked)) deleteDefrag = true;
             else deleteDefrag = false;
+
+        }
+
+        private void commandbox_Checked(object sender, RoutedEventArgs e)
+        {
 
         }
     }
