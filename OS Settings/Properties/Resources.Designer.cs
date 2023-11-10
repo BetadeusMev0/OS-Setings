@@ -59,5 +59,52 @@ namespace OS_Settings.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Windows Registry Editor Version 5.00
+        /// 
+        /// [HKEY_CLASSES_ROOT\Directory\Shell\OpenElevatedCmd]
+        ///
+        /// @=&quot;Open command prompt here as administrator&quot;
+        ///
+        /// &quot;Icon&quot;=&quot;cmd.exe&quot;
+        ///
+        /// 
+        ///
+        /// [HKEY_CLASSES_ROOT\Directory\Shell\OpenElevatedCmd\command]
+        ///
+        /// @=&quot;PowerShell -windowstyle hidden -Command \&quot;Start-Process cmd.exe -ArgumentList &apos;/s,/k,pushd,%V&apos; -Verb RunAs\&quot;&quot;
+        ///
+        /// 
+        ///
+        /// [HKEY_CLASSES_ROOT\Directory\Background\Shell\OpenElevatedCmd]
+        ///
+        /// @=&quot;Open command prompt here as administrator&quot;
+        ///
+        /// &quot;Icon&quot;=&quot;cmd.exe&quot;
+        ///
+        /// 
+        ///
+        /// [HKEY_CLA [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string _1 {
+            get {
+                return ResourceManager.GetString("1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Windows Registry Editor Version 5.00
+        /// 
+        /// [-HKEY_CLASSES_ROOT\Directory\Shell\OpenElevatedCmd]
+        /// [-HKEY_CLASSES_ROOT\Directory\Background\Shell\OpenElevatedCmd]
+        /// [-HKEY_CLASSES_ROOT\Drive\Shell\OpenElevatedCmd]
+        /// [-HKEY_CLASSES_ROOT\LibraryFolder\background\Shell\OpenElevatedCmd].
+        /// </summary>
+        internal static string _2 {
+            get {
+                return ResourceManager.GetString("2", resourceCulture);
+            }
+        }
     }
 }

@@ -1,0 +1,55 @@
+Windows Registry Editor Version 5.00
+ 
+ [HKEY_CLASSES_ROOT\Directory\Shell\OpenElevatedCmd]
+
+ @="Open command prompt here as administrator"
+
+ "Icon"="cmd.exe"
+
+ 
+
+ [HKEY_CLASSES_ROOT\Directory\Shell\OpenElevatedCmd\command]
+
+ @="PowerShell -windowstyle hidden -Command \"Start-Process cmd.exe -ArgumentList '/s,/k,pushd,%V' -Verb RunAs\""
+
+ 
+
+ [HKEY_CLASSES_ROOT\Directory\Background\Shell\OpenElevatedCmd]
+
+ @="Open command prompt here as administrator"
+
+ "Icon"="cmd.exe"
+
+ 
+
+ [HKEY_CLASSES_ROOT\Directory\Background\Shell\OpenElevatedCmd\command]
+
+ @="PowerShell -windowstyle hidden -Command \"Start-Process cmd.exe -ArgumentList '/s,/k,pushd,%V' -Verb RunAs\""
+
+ 
+
+ [HKEY_CLASSES_ROOT\Drive\Shell\OpenElevatedCmd]
+
+ @="Open command prompt here as administrator"
+
+ "Icon"="cmd.exe"
+
+ 
+
+ [HKEY_CLASSES_ROOT\Drive\Shell\OpenElevatedCmd\command]
+
+ @="PowerShell -windowstyle hidden -Command \"Start-Process cmd.exe -ArgumentList '/s,/k,pushd,%V' -Verb RunAs\""
+
+ 
+
+ [HKEY_CLASSES_ROOT\LibraryFolder\background\Shell\OpenElevatedCmd]
+
+ @="Open command prompt here as administrator"
+
+ "Icon"="cmd.exe"
+
+ 
+
+ [HKEY_CLASSES_ROOT\LibraryFolder\background\Shell\OpenElevatedCmd\command]
+
+ @=

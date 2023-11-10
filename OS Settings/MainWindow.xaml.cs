@@ -18,6 +18,7 @@ using System.Windows.Shapes;
 using System.Net.NetworkInformation;
 using System.Threading;
 using System.Diagnostics;
+using System.IO;
 
 namespace OS_Settings
 {
@@ -30,7 +31,8 @@ namespace OS_Settings
         public void ExecuteAsAdmin(string fileName)
         {
             Process proc = new Process();
-            proc.StartInfo.FileName = fileName;
+            proc.StartInfo.FileName = "regedit";
+            proc.StartInfo.Arguments = $"/s " + "tmp.reg" + "";
             proc.StartInfo.UseShellExecute = true;
             proc.StartInfo.Verb = "runas";
             proc.Start();
@@ -39,8 +41,8 @@ namespace OS_Settings
         {
             InitializeComponent();
             InitKeys();
-
-
+            // addresource("1");
+            removeresource();
         }
         RegistryKey trashKey = null;
         RegistryKey animationKey = null;
@@ -133,7 +135,16 @@ namespace OS_Settings
 
 
 
+        private void addresource(string shr)
+        {
+            if (shr == "1") File.WriteAllText("tmp.reg", OS_Settings.Properties.Resources._1);
+            if (shr == "2") File.WriteAllText("tmp.reg", OS_Settings.Properties.Resources._2);
+        }
 
+        private void removeresource()
+        {
+            File.Delete("tmp.reg");
+        }
 
         private void trashName_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -258,10 +269,14 @@ namespace OS_Settings
 
             if ((bool)commandbox.IsChecked)
             {
-                ExecuteAsAdmin("C:\\Users\\User\\source\\repos\\OS Settings\\OS Settings\\bin\\Debug\\net6.0-windows\\Resources\\1.reg");
+                addresource("1");
+                ExecuteAsAdmin("tmp.reg");
+               // removeresource();
             }
             else {
-                ExecuteAsAdmin("C:\\Users\\User\\source\\repos\\OS Settings\\OS Settings\\bin\\Debug\\net6.0-windows\\Resources\\2.reg");
+                addresource("2");
+                ExecuteAsAdmin("tmp.reg");
+               // removeresource();
             }
             RestartExplorer();
             
